@@ -331,8 +331,8 @@ function isBracketsBalanced(str) {
  *    365, 4  => '11231'
  *    365, 10 => '365'
  */
-function toNaryString(/* num, n */) {
-  throw new Error('Not implemented');
+function toNaryString(num, n) {
+  return num.toString(n);
 }
 
 
@@ -376,8 +376,21 @@ function getCommonDirectoryPath(/* pathes */) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const rowsm1 = m1.length;
+  const colsm2 = m2[0].length;
+  const result = [];
+
+  for (let i = 0; i < rowsm1; i += 1) {
+    const resultRow = [];
+    for (let j = 0; j < colsm2; j += 1) {
+      const row = m1[i].reduce((sum, item, ind) => sum + item * m2[ind][j], 0);
+      resultRow.push(row);
+    }
+    result.push(resultRow);
+  }
+
+  return result;
 }
 
 
