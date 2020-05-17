@@ -125,8 +125,10 @@ function isTriangle(a, b, c) {
  *   { top:20, left:20, width: 20, height: 20 }    =>  false
  *
  */
-function doRectanglesOverlap(/* rect1, rect2 */) {
-  throw new Error('Not implemented');
+function doRectanglesOverlap(rect1, rect2) {
+  if ((rect1.left + rect1.width >= rect2.left)
+  && (rect1.top + rect1.height >= rect2.top)) return true;
+  return false;
 }
 
 
@@ -156,8 +158,10 @@ function doRectanglesOverlap(/* rect1, rect2 */) {
  *   { center: { x:0, y:0 }, radius:10 },  { x:10, y:10 }   => false
  *
  */
-function isInsideCircle(/* circle, point */) {
-  throw new Error('Not implemented');
+function isInsideCircle(circle, point) {
+  if ((point.x - circle.center.x) ** 2 + (point.y - circle.center.y)
+  ** 2 < circle.radius ** 2) return true;
+  return false;
 }
 
 
@@ -172,8 +176,12 @@ function isInsideCircle(/* circle, point */) {
  *   'abracadabra'  => 'c'
  *   'entente' => null
  */
-function findFirstSingleChar(/* str */) {
-  throw new Error('Not implemented');
+function findFirstSingleChar(str) {
+  const arr = str.split('');
+  return arr.reduce((acc, cur) => {
+    if (!acc.includes(cur)) acc.push(cur);
+    return acc;
+  }, [])[0];
 }
 
 
@@ -426,6 +434,19 @@ function getMatrixProduct(m1, m2) {
  */
 function evaluateTicTacToePosition(/* position */) {
   throw new Error('Not implemented');
+  // let result;
+  // for (let j = 0; j < position[0].length; j += 1) {
+  //   for (let i = 0; i < position.length; i += 1) {
+  //     if (position[i].every((cur) => cur === position[i][0]) && position[i].length === 3) {
+  //       [result] = position[i];
+  //     } else {
+
+  //     }
+  //   }
+  // }
+  // }
+
+  // return result;
 }
 
 
